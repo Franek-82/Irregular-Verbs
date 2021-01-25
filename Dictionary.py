@@ -1,3 +1,5 @@
+#!/usr/bin/python3.6
+
 import sys, os, random
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QLabel, QLineEdit, QHBoxLayout, QVBoxLayout,
                              QFrame, QGroupBox, QApplication, QPushButton, QAction, QTextEdit,
