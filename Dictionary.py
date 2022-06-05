@@ -1,3 +1,5 @@
+#!/usr/bin/python3.6
+
 import sys, os, random
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QLabel, QLineEdit, QHBoxLayout, QVBoxLayout,
                              QFrame, QGroupBox, QApplication, QPushButton, QAction, QTextEdit,
@@ -327,7 +329,7 @@ class MyWindow(QMainWindow):
                           "Программа является бесплатной \nrick11@yandex.ru, 2018")
 
     def info_method(self):
-        message = "Программа запоминания английских глаголов содержит 100 слов.\n " \
+        message = "Программа запоминания английских глаголов содержит больше 100 слов.\n " \
                   "Добавить или удалить отдельные слова можно в файле verbs.txt" \
                   " (находится в папке с программой).\n" \
                   "Чтобы перейти к следующему слову, можно нажимать пробел.\n"\
