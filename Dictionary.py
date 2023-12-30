@@ -11,7 +11,7 @@ class MyWidget(QWidget):
         QWidget.__init__(self, parent)
         self.phase = ' Запоминаие слов'
         my_box = QVBoxLayout()
-        box1 = QGroupBox()
+        box1 = QGroupBox()  # blabla
         box2 = QGroupBox()
         box3 = QGroupBox()
         self.qle1 = QLineEdit(self)
@@ -78,7 +78,7 @@ class MyWindow(QMainWindow):
         self.w.lbl_phase.setStyleSheet("QWidget { color: %s }" % col.name())
         self.w.lbl_phase.setText(self.w.phase)
         self.save_change = False  # Сохранение не нужно
-        self.show_message = True # При сохранении показывать сообщение
+        self.show_message = True  # При сохранении показывать сообщение
         self.n = 4  # Кол-во слов за фазу
         self.cycle_first = True  # Первый цикл запоминания
         self.w.okBt.clicked.connect(self.phase_one)
@@ -136,7 +136,7 @@ class MyWindow(QMainWindow):
                 self.n = self.count_of_words
             print("Всего слов в этой фазе: ", self.n)
             for k in range(self.n):
-                j = random.randint(0, len(self.all_words)-1)
+                j = random.randint(0, len(self.all_words) - 1)
                 self.li_four.append(self.all_words[j])
                 self.indexes_for_del.append(j)
                 del self.all_words[j]
@@ -159,7 +159,7 @@ class MyWindow(QMainWindow):
         if self.i < self.n:  # если № элем. li_four меньше всех слов в фазе
             self.create_word()
             self.w.qle1.setFocus()
-        else:                # Переход на первую фазу
+        else:  # Переход на первую фазу
             # Удаление пройденных слов из списка для сохранения
             for index in self.indexes_for_del:
                 del self.all_words_to_save[index]
@@ -197,7 +197,7 @@ class MyWindow(QMainWindow):
 
     @pyqtSlot()
     def help(self):
-        #print("В фокусе: ", app.focusWidget())
+        # print("В фокусе: ", app.focusWidget())
         if self.w.qle1.text() != word[1]:
             self.w.qle1.setText(word[1])
             qle_name = self.w.qle1
@@ -234,12 +234,12 @@ class MyWindow(QMainWindow):
                 self.verification(my_sender)
 
     def verification(self, my_sender):
-            self.focusNextChild()  # Смещение фокуса на следующий компонет
-            col = QColor(255, 228, 196)
-            my_sender.setStyleSheet("QWidget { background-color: %s }" % col.name())
-            self.x += 1
-            if self.x == 3:
-                QTimer.singleShot(1200, self.action)
+        self.focusNextChild()  # Смещение фокуса на следующий компонет
+        col = QColor(255, 228, 196)
+        my_sender.setStyleSheet("QWidget { background-color: %s }" % col.name())
+        self.x += 1
+        if self.x == 3:
+            QTimer.singleShot(1200, self.action)
 
     def createToolBars(self):
         self.toolBar = self.addToolBar("List total")
@@ -270,7 +270,7 @@ class MyWindow(QMainWindow):
                 for el in words:
                     list_el = el.split()
                     # txt.setStyleSheet("QTextEdit {color:red}")
-                    word = "<font size='4'><pre><font color='red'>{0:11}</font>{1:11}{2:11}{3:12}</pre></font>".\
+                    word = "<font size='4'><pre><font color='red'>{0:11}</font>{1:11}{2:11}{3:12}</pre></font>". \
                         format(list_el[1], list_el[2], list_el[3], list_el[0])
                     self.answers_widget.append(word.rstrip())
             else:
@@ -287,7 +287,7 @@ class MyWindow(QMainWindow):
         self.answers_widget.setFrameStyle(QFrame.StyledPanel | QFrame.Plain)
         self.answers_widget.setFixedHeight(280)
         self.txt_widget.setFont(QFont("Courier"))
-        #self.txt_widget.setFontPointSize(20)
+        # self.txt_widget.setFontPointSize(20)
         self.txt_widget.setReadOnly(True)
         self.answers_widget.setReadOnly(True)
         #  Сортировка списка слов по алфавиту
@@ -330,7 +330,7 @@ class MyWindow(QMainWindow):
         message = "Программа запоминания английских глаголов содержит 100 слов.\n " \
                   "Добавить или удалить отдельные слова можно в файле verbs.txt" \
                   " (находится в папке с программой).\n" \
-                  "Чтобы перейти к следующему слову, можно нажимать пробел.\n"\
+                  "Чтобы перейти к следующему слову, можно нажимать пробел.\n" \
                   "Если забыли перевод глагола на английский, \nнажмите клавишу Ctrl или" \
                   " на окне программы кнопку 'Подсказка'."
         QMessageBox.about(self, "Информация", message)
