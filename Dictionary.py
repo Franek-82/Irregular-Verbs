@@ -11,7 +11,7 @@ class MyWidget(QWidget):
         QWidget.__init__(self, parent)
         self.phase = ' Запоминаие слов'
         my_box = QVBoxLayout()
-        box1 = QGroupBox()  # blabla
+        box1 = QGroupBox()
         box2 = QGroupBox()
         box3 = QGroupBox()
         self.qle1 = QLineEdit(self)
